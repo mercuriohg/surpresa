@@ -1,0 +1,49 @@
+:root{
+    --Cor1: #8A4B2F;
+    --Cor2: #D2B48C;
+    --Cor3: #556B2F;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: var(--Cor1);
+}
+header{
+    background-color: var(--Cor2);
+    padding: 20px;
+}
+h1{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: var(--Cor3);
+}
+a:hover{
+    color: var(--Cor1);
+}
+ul{
+    display: flex;
+    justify-content: space-between;
+}
+li{
+    list-style: none;
+}
+p{
+    text-align: justify;
+    margin: 20px;
+    padding: 8px;
+    word-spacing: 3px;
+}
+#olhos{
+    background-image: url('img/olhosana.jpg');
+    background-position: center center;
+    background-size: cover;
+    padding: 20px;
+    background-color: black;
+}
+#olhos>p{
+    background-color: #556b2f71;
+}
