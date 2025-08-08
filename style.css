@@ -34,6 +34,7 @@ ul{
     justify-content: space-between;
 }
 li{
+    font-size: larger;
     list-style: none;
 }
 p{
@@ -51,4 +52,14 @@ p{
 }
 #olhos>p{
     background-color: #556b2f71;
+}
+@media (max-width: 700px){
+    ul{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+    li{
+        margin:10px;
+    }
 }
