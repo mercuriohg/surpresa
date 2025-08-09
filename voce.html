@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Você, AnaLu Hofmann</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estrutura do carrossel */
+        .carousel {
+            position: relative;
+            max-width: 500px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            min-width: 100%;
+        }
+        .slide img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.3);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .active-dot {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+
+<header id="container" class="conteudo">
+    <nav>
+        <h1>AnaLu Hofmann, Meu Grande Amor</h1>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="nos.html">Nós</a></li>
+            <li><a href="coisas.html">Coisas que me lembram você</a></li>
+            <li><a href="descubra.html">Descubra</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>EU TE AMO</h1>
+
+    <div class="carousel">
+        <div class="slides" id="voceSlides">
+            <div class="slide"><img src="imgvoce/afolhaqlembravoce.jpg" alt=""></div>
+            <div class="slide"><img src="imgvoce/vocecommedo.jpg" alt=""></div>
+            <div class="slide"><img src="imgvoce/voceesuamae.jpg" alt=""></div>
+            <div class="slide"><img src="imgvoce/vocenasuacama.jpg" alt=""></div>
+            <div class="slide"><img src="imgvoce/vocesendofofoqueira.jpg" alt=""></div>
+            <div class="slide"><img src="imgvoce/vocesendosemprelinda.jpg" alt=""></div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1, 'voceSlides', 'voceDots')">&#10094;</button>
+        <button class="next" onclick="moveSlide(1, 'voceSlides', 'voceDots')">&#10095;</button>
+    </div>
+    <div class="dots" id="voceDots"></div>
+
+    <h1>O teu estilo, tudo que há em você. Tudo é perfeito. Eu te amo!</h1>
+</main>
+
+<script>
+function createDots(slideId, dotId) {
+    const slides = document.getElementById(slideId).children;
+    const dotsContainer = document.getElementById(dotId);
+    for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.onclick = () => currentSlide(i, slideId, dotId);
+        dotsContainer.appendChild(dot);
+    }
+    updateDots(0, dotId);
+}
+function moveSlide(step, slideId, dotId) {
+    const slides = document.getElementById(slideId);
+    let index = parseInt(slides.getAttribute("data-index") || "0") + step;
+    if (index >= slides.children.length) index = 0;
+    if (index < 0) index = slides.children.length - 1;
+    slides.style.transform = `translateX(${-index * 100}%)`;
+    slides.setAttribute("data-index", index);
+    updateDots(index, dotId);
+}
+function currentSlide(index, slideId, dotId) {
+    const slides = document.getElementById(slideId);
+    slides.style.transform = `translateX(${-index * 100}%)`;
+    slides.setAttribute("data-index", index);
+    updateDots(index, dotId);
+}
+function updateDots(activeIndex, dotId) {
+    const dots = document.getElementById(dotId).children;
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active-dot");
+    }
+    dots[activeIndex].classList.add("active-dot");
+}
+createDots('voceSlides', 'voceDots');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Carta — Eu te amo</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* Container da carta */
+.card {
+    background-color: var(--Cor2);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    max-width: 420px;
+    margin: 60px auto;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid var(--Cor3);
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* Cabeçalho da carta */
+.card-header {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--Cor1);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Conteúdo da carta (inicialmente fechado) */
+.card-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.6s ease;
+    text-align: center;
+    background-color: var(--Cor2);
+}
+
+/* Quando abrir */
+.card.open .card-content {
+    max-height: 800px; /* grande o suficiente p/ a imagem */
+    opacity: 1;
+    padding: 20px;
+}
+
+/* Imagem do gatinho */
+.kitty img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 0 auto 18px auto;
+    display: block;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    border: 4px solid var(--Cor1);
+}
+
+/* Mensagem */
+h1 {
+    color: var(--Cor3);
+    font-size: 28px;
+    margin: 12px 0;
+}
+p {
+    font-size: 16px;
+    color: var(--Cor1);
+}
+</style>
+</head>
+<body>
+
+<div class="card" onclick="this.classList.toggle('open')">
+    <div class="card-header">Clique para abrir ❤️</div>
+    <div class="card-content">
+        <div class="kitty">
+            <!-- Troque o caminho da imagem para seu gatinho -->
+            <img src="imgcoisas/cats.jpg" alt="Gatinho fofo">
+        </div>
+        <h1>Eu te amo alemoa ❤️</h1>
+        <p>Com carinho, o Seu Pitico!</p>
+    </div>
+</div>
+
+</body>
+</html>
